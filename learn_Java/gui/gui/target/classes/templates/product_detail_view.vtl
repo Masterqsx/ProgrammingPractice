@@ -1,0 +1,222 @@
+<div class="container-fluid">
+    <div class="content-wrapper">	
+		<div class="item-container">	
+			<div class="container">	
+				<div class="col-md-20">
+				
+					<div class="container service1-items col-sm-2 col-md-2"  style="width: 300px; height: 300px;"  aria-hidden = "true" >
+                    
+						<center>
+							<img id="item-display" src="$largeImage" alt="" style="max-width:290px; height:max-290px;"></img>
+						</center>
+					
+					</div>
+					
+					
+	
+					
+					
+					<div class="container service1-items col-sm-2 col-md-2 ">
+						<center
+							<p> General Rating</p>
+							<div class="product-rating" >
+								<i class="$R1star0"></i> 
+								<i class="$R1star1"></i>
+					 			<i class="$R1star2"></i>
+					 			<i class="$R1star3"></i> 
+					 			<i class="$R1star4"></i>
+							</div>
+						
+							<p> Most Helpful Review Rating</p>
+							<div class="product-rating">
+								<i class="$R2star0"></i> 
+								<i class="$R2star1"></i>
+					 			<i class="$R2star2"></i>
+					 			<i class="$R2star3"></i> 
+					 			<i class="$R2star4"></i>
+							</div>
+							
+							<p> Most Recent Review Rating</p>
+							<div class="product-rating" >
+								<i class="$R3star0"></i> 
+								<i class="$R3star1"></i>
+					 			<i class="$R3star2"></i>
+					 			<i class="$R3star3"></i> 
+					 			<i class="$R3star4"></i>
+							</div>
+						</center>
+					</div>
+					
+					<div class="col-md-3" >
+						<div class="product-title">$productTitle</div>
+					    <div class="product-desc"><$brand</a></div>
+					
+					    <hr>
+							<div class="product-price">$price</div>
+							<div class="product-stock">In Stock</div>
+						<hr>
+						<div class="btn-group cart">
+							<a class="btn btn-success" href="$amazonLink">link to Amazon</a>
+							
+							
+						</div>
+					</div>
+						
+				</div>
+					
+				
+			</div> 
+		</div>
+		<div class="container-fluid">		
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+						
+						<li class="active"><a href="#service-one" data-toggle="tab">PRICE TABLE</a></li>
+						<li><a href="#service-two" data-toggle="tab">PRICE HISTORY</a></li>
+						<li><a href="#service-three" data-toggle="tab">MOST USEFUL REVIEWS</a></li>
+						
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">
+						 
+							<section class="container product-info">
+							
+								<div class="pad">     
+                                	<h3 class="notopmargin">Amazon Price History</h3>    
+                                    	<table class="product_pane" width="100%"> 
+                                        	<thead>
+                                            	<tr>
+                                                <th width="40%">Type</th>
+                                                <th width="26%">Price</th>
+                                                <th class="" width="34%">When</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            <tr class="highest_price">
+                                            <td >Highest <sup>*</sup></td>
+                                            <td >$highestPrice</td>
+                                            <td >$highestTime</td>
+                                          </tr>
+                                            <tr class="lowest_price">
+                                            <td >Lowest <sup>*</sup></td>
+                                            <td >$lowestPrice</td>
+                                            <td >$lowestTime</td>
+                                          </tr>
+                                          <tr >
+                                            <td >Average <sup>+</sup></td>
+                                            <td >$averagePrice</td>
+                                            <td >-</td>
+                                          </tr>
+                                          </tbody>
+                                          </table>
+                           </div>
+
+								
+							</section>
+										  
+						</div>
+					<div class="tab-pane fade" id="service-two">
+						
+						<section class="container">
+							
+ 							<div class="photo">
+                                    <img src="$priceHistoryImage" alt="Sorry, we couldn't find the price history" />
+                            </div>
+							
+						</section>
+						
+					</div>
+					<div class="tab-pane fade" id="service-three">
+					
+						<section class="container" ng-app="myapp">
+								<p> <b>$reviewTitle1</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar10"></i> 
+									<i class="$reviewStar11"></i>
+					 				<i class="$reviewStar12"></i>
+					 				<i class="$reviewStar13"></i> 
+					 				<i class="$reviewStar14"></i>
+								</div>
+								<p> $reviewContent1</p>
+								
+								<p> <b>$reviewTitle2</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar20"></i> 
+									<i class="$reviewStar21"></i>
+					 				<i class="$reviewStar22"></i>
+					 				<i class="$reviewStar23"></i> 
+					 				<i class="$reviewStar24"></i>
+								</div>
+								<p> $reviewContent2</p>
+								
+								<p> <b>$reviewTitle3</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar30"></i> 
+									<i class="$reviewStar31"></i>
+					 				<i class="$reviewStar32"></i>
+					 				<i class="$reviewStar33"></i> 
+					 				<i class="$reviewStar34"></i>
+								</div>
+								<p> $reviewContent3</p>
+								
+								<p> <b>$reviewTitle4</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar40"></i> 
+									<i class="$reviewStar41"></i>
+					 				<i class="$reviewStar42"></i>
+					 				<i class="$reviewStar43"></i> 
+					 				<i class="$reviewStar44"></i>
+								</div>
+								<p> $reviewContent4</p>
+								
+								<p> <b>$reviewTitle5</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar50"></i> 
+									<i class="$reviewStar51"></i>
+					 				<i class="$reviewStar52"></i>
+					 				<i class="$reviewStar53"></i> 
+					 				<i class="$reviewStar54"></i>
+								</div>
+								<p> $reviewContent5</p>
+								
+								<p> <b>$reviewTitle6</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar60"></i> 
+									<i class="$reviewStar61"></i>
+					 				<i class="$reviewStar62"></i>
+					 				<i class="$reviewStar63"></i> 
+					 				<i class="$reviewStar64"></i>
+								</div>
+								<p> $reviewContent6</p>
+								
+								<p> <b>$reviewTitle7</b></p>
+								<div class="product-rating" style="height: 30px;">
+									<i class="$reviewStar70"></i> 
+									<i class="$reviewStar71"></i>
+					 				<i class="$reviewStar72"></i>
+					 				<i class="$reviewStar73"></i> 
+					 				<i class="$reviewStar74"></i>
+								</div>
+								<p> $reviewContent7</p>
+
+									<div ng-hide="true" class="review-frame">
+										<p> <b>$reviewTitle8</b></p>
+											<div class="product-rating" style="height: 30px;">
+												<i class="$reviewStar80"></i> 
+												<i class="$reviewStar81"></i>
+					 							<i class="$reviewStar82"></i>
+					 							<i class="$reviewStar83"></i> 
+					 							<i class="$reviewStar84"></i>
+											</div>
+										<p ng-hide="true"> $reviewContent8</p>
+									</div>
+						</section>
+												
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>

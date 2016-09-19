@@ -1,0 +1,72 @@
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+#main {
+    color: #fff;
+    min-height: 250px;
+    background: url('https://static.pexels.com/photos/14676/pexels-photo-14676.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    font-weight: 100;
+    font-size: 23px;
+}
+
+body {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.navbar:before {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    width: 100%;
+    background: #c4e17f;
+    border-radius: 5px 5px 0 0;
+    background-image: linear-gradient(to right,#14CC77,#14CC77 12.5%,#c4e17f 12.5%,#c4e17f 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
+}
+
+#wrapper .main {
+    background-color: #333;
+    opacity: 0.75;
+    margin: auto;
+}
