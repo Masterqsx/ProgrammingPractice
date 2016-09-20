@@ -1,0 +1,5 @@
+Credentials cache: API:19756
+        Principal: sqian@42.US.ORG
+
+  Issued                Expires               Principal
+Jul 12 23:07:23 2016  Jul 13 09:07:23 2016  krbtgt/42.US.ORG@42.US.ORG
