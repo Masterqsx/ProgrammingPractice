@@ -1,6 +1,7 @@
 package algorithm.bst;
 
 public class MyRedBlackBSTLite {
+    //This is the Red-Black BST can only search and add nodes
 
     private static final boolean RED = true;
     private static final boolean BLACK = false;
