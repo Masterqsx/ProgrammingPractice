@@ -28,6 +28,7 @@ public class TestMyFullZKWSegmentTree {
         st.updateSingleSum(0, 10);
         st.updateSum(0, 3, 15);
         assertTrue(st.querySum(0, 3) == 15 * 4 + 30);
+        assertEquals(24, st.querySum(1, 1));
     }
 
     @Test
