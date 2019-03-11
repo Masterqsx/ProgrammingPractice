@@ -28,14 +28,14 @@ public class TestMyIndexPriorityQueue {
 
     @Test
     public void testSorting() {
-        MyIndexPriorityQueue<Dummy> pq = new MyIndexPriorityQueue<>((l, r) -> l.n - r.n);
+        MyIndexPriorityQueue<Dummy, Dummy> pq = new MyIndexPriorityQueue<>((l, r) -> l.n - r.n);
         int[] testCase1 = {19, 2, 44, -1, 100, 20, 2, 19, -2147483, 21474837};
         Dummy[] testCase2 = new Dummy[testCase1.length];
         int[] verifyCase1 = {-1, 2, 3, 19, 19, 20, 44, 100};
 
         for (int i = 0; i < testCase1.length; i++) {
             testCase2[i] = new Dummy(testCase1[i]);
-            pq.insert(testCase2[i]);
+            pq.insert(testCase2[i], testCase2[i]);
         }
 
         // delete arbitrary
@@ -44,10 +44,10 @@ public class TestMyIndexPriorityQueue {
 
         // update arbitrary
         testCase2[1].n = 3;
-        pq.update(testCase2[1]);
+        pq.update(testCase2[1], testCase2[1]);
 
         for (int i = 0; i < verifyCase1.length; i++) {
-            assertTrue(pq.top().n == verifyCase1[i]);
+            assertTrue(pq.top().getValue().n == verifyCase1[i]);
             pq.delTop();
         }
     }

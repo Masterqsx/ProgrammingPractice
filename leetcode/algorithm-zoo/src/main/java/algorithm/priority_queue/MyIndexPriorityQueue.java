@@ -1,12 +1,15 @@
 package algorithm.priority_queue;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
-public class MyIndexPriorityQueue<T> {
+public class MyIndexPriorityQueue<K, T> {
 
     /** this only work with non primitive wrap class **/
+    //T is payload and K is key
 
     public interface Comparator<T> {
         int compare(T l, T r);
@@ -18,7 +21,8 @@ public class MyIndexPriorityQueue<T> {
     private ArrayList<T> list = new ArrayList<>();
 
     /** for indexing mapping **/
-    private HashMap<T, Integer> indexing = new HashMap<>();
+    private HashMap<K, Integer> keyToIndex = new HashMap<>();
+    private HashMap<Integer, K> indexToKey = new HashMap<>();
 
     /** create a root on 0 priority queue **/
     public MyIndexPriorityQueue(MyIndexPriorityQueue.Comparator<T> c) {
@@ -26,18 +30,26 @@ public class MyIndexPriorityQueue<T> {
     }
 
     private void indexingSwap(int l, int r) {
-        indexing.put(list.get(r), l);
-        indexing.put(list.get(l), r);
+        keyToIndex.put(indexToKey.get(r), l);
+        keyToIndex.put(indexToKey.get(l), r);
+
+        K temp = indexToKey.get(l);
+        indexToKey.put(l, indexToKey.get(r));
+        indexToKey.put(r, temp);
+
         Collections.swap(list, l, r);
     }
 
-    private void indexingAdd(T element) {
+    private void indexingAdd(K key, T element) {
         list.add(element);
-        indexing.put(element, list.size() - 1);
+        keyToIndex.put(key, list.size() - 1);
+        indexToKey.put(list.size() - 1, key);
     }
 
     private void indexingDel(int index) {
-        indexing.remove(list.get(index));
+        K removedKey = indexToKey.get(index);
+        keyToIndex.remove(removedKey);
+        indexToKey.remove(index);
         list.remove(index);
     }
 
@@ -70,18 +82,18 @@ public class MyIndexPriorityQueue<T> {
     }
 
     /** insert new element into priority queue  **/
-    public void insert(T element) {
-        indexingAdd(element);
+    public void insert(K key, T element) {
+        indexingAdd(key, element);
         swim(list.size() - 1);
     }
 
     /** retrieve top element **/
-    public T top() {
+    public Map.Entry<K, T> top() {
         if (list.isEmpty()) {
             return null;
         }
         else {
-            return list.get(0);
+            return new AbstractMap.SimpleEntry<>(indexToKey.get(0), list.get(0));
         }
     }
 
@@ -96,9 +108,9 @@ public class MyIndexPriorityQueue<T> {
     /** delete arbitrary element **/
     /** The indexing is necessary since we need to know the index to delete **/
     /** However, the input is element, we have to use a reverse mapping**/
-    public void delete(T element) {
-        if (list.isEmpty() || !indexing.containsKey(element)) return;
-        int tempIndex = indexing.get(element);
+    public void delete(K key) {
+        if (list.isEmpty() || !keyToIndex.containsKey(key)) return;
+        int tempIndex = keyToIndex.get(key);
         indexingSwap(tempIndex, list.size() - 1);
         indexingDel(list.size() - 1);
 
@@ -108,11 +120,24 @@ public class MyIndexPriorityQueue<T> {
     }
 
     /** update arbitrary element **/
-    public void update(T element) {
-        if (!indexing.containsKey(element)) return;
-        int tempIndex = indexing.get(element);
+    public void update(K key, T element) {
+        if (!keyToIndex.containsKey(key)) return;
+        int tempIndex = keyToIndex.get(key);
+        list.set(tempIndex, element);
         swim(tempIndex);
         sink(tempIndex);
+    }
+
+    public int size() {
+        return list.size();
+    }
+
+    public boolean containsKey(K key) {
+        return keyToIndex.containsKey(key);
+    }
+
+    public T get(K key) {
+        return list.get(keyToIndex.get(key));
     }
 
 }
