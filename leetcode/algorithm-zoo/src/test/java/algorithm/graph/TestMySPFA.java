@@ -8,8 +8,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
-public class TestMySP
-gFA {
+public class TestMySPFA {
     @Test
     public void testSearchSP() throws IOException {
         Map<String, Map<String, Double>> graph = GraphParser.parse("src/test/resources/tinyEWD.txt");
