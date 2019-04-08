@@ -22,4 +22,20 @@ public class GraphParser {
 
         return graph;
     }
+
+    //Used to make undirected graph has double link edge
+    public static Map<String, Map<String, Double>> parseUndirected(String path) throws IOException {
+        Map<String, Map<String, Double>> graph = parse(path);
+        Map<String, Map<String, Double>> res = new HashMap<>();
+
+        for (Map.Entry<String, Map<String, Double>> entryI : graph.entrySet()) {
+            for (Map.Entry<String, Double> entryJ : graph.get(entryI.getKey()).entrySet()) {
+                if (!res.containsKey(entryJ.getKey())) res.put(entryJ.getKey(), new HashMap<>());
+                if (!res.containsKey(entryI.getKey())) res.put(entryI.getKey(), new HashMap<>());
+                res.get(entryJ.getKey()).put(entryI.getKey(), entryJ.getValue());
+                res.get(entryI.getKey()).put(entryJ.getKey(), entryJ.getValue());
+            }
+        }
+        return res;
+    }
 }
