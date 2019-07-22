@@ -32,7 +32,7 @@ public class MyFullZKWSegmentTree {
         for (s += m, e += m + 2; (s^e^1) != 0; s >>= 1, e >>= 1, len <<= 1) {
             //Cover the lowest sub ranges it traversed in tag
             //elements in tag array means all elements in range should modified value
-            //The core idea is: the update tag will populate the nodes down until sub range is fully covered by update range.
+            //* The core idea is: the update tag will populate the nodes down until sub range is fully covered by update range.
             //The nodes updated here are those nodes are fully in the query range
             //The most important is the tag will only be set in those nodes are fully in the query range
             //The update of parents of the tag nodes is in sum array
@@ -56,7 +56,7 @@ public class MyFullZKWSegmentTree {
     public int querySum(int s, int e) {
         int lc = 0, rc = 0, len = 1, res = 0;
         for (s += m, e += m + 2; (s^e^1) > 0; s >>= 1, e >>= 1, len <<= 1) {
-            //when query, the res should be sum value + tag value * len of node
+            //* when query, the res should be sum value + tag value * len of node
             //lc represents the length of current node range under query range, same as rc
             //You may worry about if the length of current level is not the power of 2.
             //1. The node that length is not the power of 2 only happens at the side,
@@ -153,9 +153,10 @@ public class MyFullZKWSegmentTree {
         //We use close range here since it will add open range start and end's value
         //We can use open range but it will add more lines (because we can only add the diff value until they are partially covered, lc or rc > 0)
         //**The problem of close range is the range will be traversed more than once when going up at sides, but this is not a problem in this
+        //In open range approach, s or e could be intersect or completely no intersect, close range make sure it is at least partially intersect
         for (s += m + 1, e += m + 1; (s^e^1) != 0; s >>= 1, e >>= 1) {
-            //If range of node traversed is partially covered by query range
-            L += diff[s];
+            //If range of node traversed is partially covered by query range?
+            L += diff[s]; // The L only represent certain value in the range of s, it is a value, that is why it can compare
             R += diff[e];
             //If brother node is fully covered by query range
             //Fully covered range share the same root under the following condition, then we can compare

@@ -61,6 +61,7 @@ public class MySegmentTree {
             if (start <= n.start && end >= n.end) return n.max; //if query range contain current range
             else {// if query range is partially connect
                 pushDown(n);
+                //In this traversal, each layer will only have at most 2 node visiting, that is why it is O(logn)
                 return Math.max(queryHelper(n.left, start, end), queryHelper(n.right, start, end));
             }
         }

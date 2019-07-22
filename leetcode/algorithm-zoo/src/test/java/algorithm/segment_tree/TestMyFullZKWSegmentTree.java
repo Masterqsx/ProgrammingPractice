@@ -42,4 +42,14 @@ public class TestMyFullZKWSegmentTree {
         st.updateMax(0, 3, 15);
         assertEquals(st.querySum(0, 3), 25);
     }
+
+    @Test
+    public void testSpecificUpdateSumAndQuery() {
+        int[] range = new int[5];
+        MyFullZKWSegmentTree st = new MyFullZKWSegmentTree(range);
+        st.updateSum(0, 1, 10);
+        st.updateSum(1, 2, 20);
+        st.updateSum(1, 4, 25);
+        assertEquals(25, st.querySum(4, 4));
+    }
 }
